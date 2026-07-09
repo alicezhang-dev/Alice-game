@@ -457,7 +457,7 @@ const MODEL_FILES={
 // Approximate on-screen height (world units) before the player-scale multiplier.
 const MODEL_HEIGHT={dragon:2.6, bird:2.0, cat:1.1};
 // If a model faces the wrong way in game, rotate it here (try Math.PI, ±Math.PI/2).
-const MODEL_YAW={dragon:0, bird:Math.PI/2, cat:0};
+const MODEL_YAW={dragon:0, bird:Math.PI, cat:0};
 const REAL_MODELS={};   // species -> { template:Group, clips:[AnimationClip] }
 const MIXERS=[];        // live AnimationMixers, advanced each frame in loop()
 function loadRealModels(){
@@ -875,16 +875,11 @@ function buildIsland(){
   grass.rotation.x=-Math.PI/2;grass.position.set(C.x,0.18,C.z);grass.receiveShadow=true;scene.add(grass);
   // reef ring — rocks block ground-walkers (cats); flyers pass over (colliders act only below y=3)
   const gapA=Math.atan2(-C.z,-C.x); // direction toward mainland (where the cat's bridge lands)
-  // Wall sits right at the sea's edge (sea disc radius is 62), with NO radial jitter this time
-  // (jitter could stretch the true distance between neighboring colliders past their overlap
-  // margin). 96 colliders at a fixed radius, each overlapping its neighbors by 2x+, seal the
-  // ring completely. The gap matches the bridge deck's real width, not an oversized hole.
-  const REEF_N=96, REEF_R=60, REEF_COL=3.0, GAP_HALF=0.05;
-  for(let i=0;i<REEF_N;i++){const a=i/REEF_N*Math.PI*2;
-    const x=C.x+Math.cos(a)*REEF_R,z=C.z+Math.sin(a)*REEF_R;
+  for(let i=0;i<28;i++){const a=i/28*Math.PI*2,rr=50+rand(-2,2);
+    const x=C.x+Math.cos(a)*rr,z=C.z+Math.sin(a)*rr;
     let dd=a-gapA;dd=Math.atan2(Math.sin(dd),Math.cos(dd));
-    const inGap=(chosenSpecies==='cat'&&Math.abs(dd)<GAP_HALF);
-    const c=addCollider(x,z,REEF_COL);
+    const inGap=(chosenSpecies==='cat'&&Math.abs(dd)<0.42);
+    const c=addCollider(x,z,3.0);
     if(inGap){bridgeGap.push(c);continue;} // keep blocker until bridge built; skip rock so deck sits clean
     const r=buildRock();r.scale.multiplyScalar(rand(1.4,2.4));
     r.position.set(x,rand(0.2,0.9),z);r.castShadow=true;scene.add(r);}
@@ -927,10 +922,6 @@ function buildWorld(){
   // pond
   const pond=new THREE.Mesh(new THREE.CircleGeometry(9,18),new THREE.MeshStandardMaterial({color:'#57a8e0',roughness:0.4}));
   pond.rotation.x=-Math.PI/2;pond.position.set(L.pond.x,0.04,L.pond.z);scene.add(pond);
-  // seal the pond too — no bridge here, so it's a fully closed ring (nobody wades in, ever)
-  {const PN=28,PR=8.6,PCOL=1.4;
-   for(let i=0;i<PN;i++){const a=i/PN*Math.PI*2;
-     addCollider(L.pond.x+Math.cos(a)*PR,L.pond.z+Math.sin(a)*PR,PCOL);}}
   // nest (player home)
   placeProp(buildNest,L.nest,null,0,0);
   // village houses (ring)
@@ -1214,11 +1205,7 @@ function spawnQuestStuff(q){
     }else{
       for(let i=0;i<s.count;i++){
         const g=buildQuestItem(s.item);let p;
-        if(s.at==='pond'){ // shore only — the pond itself is now sealed off, and a fisherman's
-          // basket makes more sense on the bank anyway
-          const a=rand(0,Math.PI*2),rr=rand(9.3,11.2);
-          p=new THREE.Vector3(L.pond.x+Math.cos(a)*rr,0,L.pond.z+Math.sin(a)*rr);
-        }else if(s.at&&L[s.at]){p=L[s.at].clone().add(new THREE.Vector3(rand(-6,6),0,rand(-6,6)));}
+        if(s.at&&L[s.at]){p=L[s.at].clone().add(new THREE.Vector3(rand(-6,6),0,rand(-6,6)));}
         else if(s.at==='village'||s.item==='trinket'||s.item==='yarn'){p=L.village.clone().add(new THREE.Vector3(rand(-24,24),0,rand(-24,24)));}
         else if(s.item==='berry'){p=new THREE.Vector3(rand(-WORLD*0.7,WORLD*0.7),0,rand(-WORLD*0.7,WORLD*0.7));}
         else if(s.item==='songpost'){p=[new THREE.Vector3(40,0,-30),new THREE.Vector3(-40,0,-10),new THREE.Vector3(10,0,60)][i]||new THREE.Vector3(rand(-80,80),0,rand(-80,80));}
