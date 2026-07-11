@@ -457,7 +457,9 @@ const MODEL_FILES={
 // Approximate on-screen height (world units) before the player-scale multiplier.
 const MODEL_HEIGHT={dragon:2.6, bird:2.0, cat:1.1};
 // If a model faces the wrong way in game, rotate it here (try Math.PI, ±Math.PI/2).
-const MODEL_YAW={dragon:0, bird:Math.PI, cat:0};
+const MODEL_YAW={dragon:0, bird:Math.PI/2, cat:0};
+// If a model is tilted nose-up/down at rest (e.g. baked "diving" pose), correct it here.
+const MODEL_PITCH={dragon:0, bird:-Math.PI/4, cat:0};
 const REAL_MODELS={};   // species -> { template:Group, clips:[AnimationClip] }
 const MIXERS=[];        // live AnimationMixers, advanced each frame in loop()
 function loadRealModels(){
@@ -466,7 +468,9 @@ function loadRealModels(){
   Object.entries(MODEL_FILES).forEach(([species,url])=>{
     loader.load(url,gltf=>{
       const s=gltf.scene;
+      s.rotation.order='YXZ';                             // match player group's convention so yaw+pitch compose predictably
       s.rotation.y=MODEL_YAW[species]||0;                 // face game-forward (+Z)
+      s.rotation.x=MODEL_PITCH[species]||0;                // level out nose-up/down bake-in
       let bb=new THREE.Box3().setFromObject(s);
       let size=bb.getSize(new THREE.Vector3());
       const target=MODEL_HEIGHT[species]||2.4;
