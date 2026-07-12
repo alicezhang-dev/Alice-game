@@ -815,6 +815,23 @@ function initThree(){
 }
 
 function addCollider(x,z,r){const c={x,z,r};colliders.push(c);return c;}
+// Finds a random point within `radius` of `center` that isn't blocked by any
+// collider (e.g. a house wall) — used so quest items never spawn unreachable.
+function findClearSpot(center,radius,tries){
+  tries=tries||20;
+  for(let i=0;i<tries;i++){
+    const x=center.x+rand(-radius,radius), z=center.z+rand(-radius,radius);
+    let blocked=false;
+    for(let j=0;j<colliders.length;j++){
+      const c=colliders[j];
+      // extra margin so the item sits well outside the collider's push-back zone
+      if(Math.hypot(x-c.x,z-c.z)<c.r+3.2){blocked=true;break;}
+    }
+    if(!blocked)return new THREE.Vector3(x,0,z);
+  }
+  // fallback: couldn't find a clear spot after `tries` attempts, use center
+  return center.clone();
+}
 function placeProp(builder,pos,kind,hp,colR){
   const g=builder();g.position.copy(pos);g.rotation.y=rand(0,Math.PI*2);scene.add(g);
   if(colR)addCollider(pos.x,pos.z,colR);
@@ -937,7 +954,7 @@ function buildWorld(){
     placeProp(buildPot,new THREE.Vector3(L.village.x+Math.cos(a)*r,0,L.village.z+Math.sin(a)*r),'pot',12,0);}
   // crates
   for(let i=0;i<8;i++){const a=rand(0,Math.PI*2),r=rand(8,26);
-    placeProp(buildCrate,new THREE.Vector3(L.village.x+Math.cos(a)*r,0,L.village.z+Math.sin(a)*r),'crate',24,0.8);}
+    placeProp(buildCrate,new THREE.Vector3(L.village.x+Math.cos(a)*r,0,L.village.z+Math.sin(a)*r),'crate',24,0);}
   // farm: barn + haystacks
   placeProp(buildBarn,L.barn,null,0,3.4);
   for(let i=0;i<8;i++){placeProp(buildHaystack,new THREE.Vector3(L.barn.x+rand(-18,18),0,L.barn.z+rand(-16,16)),'haystack',30,1.1);}
@@ -1209,8 +1226,8 @@ function spawnQuestStuff(q){
     }else{
       for(let i=0;i<s.count;i++){
         const g=buildQuestItem(s.item);let p;
-        if(s.at&&L[s.at]){p=L[s.at].clone().add(new THREE.Vector3(rand(-6,6),0,rand(-6,6)));}
-        else if(s.at==='village'||s.item==='trinket'||s.item==='yarn'){p=L.village.clone().add(new THREE.Vector3(rand(-24,24),0,rand(-24,24)));}
+        if(s.at&&L[s.at]){p=findClearSpot(L[s.at],6);}
+        else if(s.at==='village'||s.item==='trinket'||s.item==='yarn'){p=findClearSpot(L.village,24);}
         else if(s.item==='berry'){p=new THREE.Vector3(rand(-WORLD*0.7,WORLD*0.7),0,rand(-WORLD*0.7,WORLD*0.7));}
         else if(s.item==='songpost'){p=[new THREE.Vector3(40,0,-30),new THREE.Vector3(-40,0,-10),new THREE.Vector3(10,0,60)][i]||new THREE.Vector3(rand(-80,80),0,rand(-80,80));}
         else{p=new THREE.Vector3(rand(-WORLD*0.7,WORLD*0.7),0,rand(-WORLD*0.7,WORLD*0.7));}
@@ -1465,9 +1482,9 @@ function updatePlayer(dt,t){
   // regen
   player.regenT+=dt;
   if(player.regenT>5&&player.hp<player.maxHp){player.hp=Math.min(player.maxHp,player.hp+4*dt);updateHUD();}
-  // knock over pots by touching them
+  // knock over pots and crates by touching them
   if(!player.dead){
-    destroyables.forEach(d=>{if(!d.alive||d.kind!=='pot')return;
+    destroyables.forEach(d=>{if(!d.alive||(d.kind!=='pot'&&d.kind!=='crate'))return;
       const dp=d.group.position;
       if(Math.hypot(dp.x-pos.x,dp.z-pos.z)<1.8*player.scale+0.9&&Math.abs(dp.y-pos.y)<3){
         damageDestroyable(d,d.hp);}});
