@@ -277,7 +277,17 @@ dragon:[
  {title:'Star Glutton', desc:'Collect 20 stars', type:'stars', count:20, xp:800},
  {title:'Guardian of the Ruins', desc:'Defeat the Stone Guardian (boss)!', type:'kill', target:'boss', count:1, xp:1200, boss:'stoneguardian', bossAt:'ruins', bossTough:1.6},
  {title:'Sky Gauntlet', desc:'Fly through 12 rings over the isle', type:'collect', item:'ring', count:12, xp:1000, spawn:{item:'ring',count:12,at:'isle'}},
- {title:'The Emberfall Wyrm', desc:'Defeat the Emberfall Wyrm (final boss)!', type:'kill', target:'boss', count:1, xp:2000, boss:'emberwyrm', bossAt:'volcano', bossTough:2.2}
+ {title:'The Emberfall Wyrm', desc:'Defeat the Emberfall Wyrm (final boss)!', type:'kill', target:'boss', count:1, xp:2000, boss:'emberwyrm', bossAt:'volcano', bossTough:2.2},
+ {title:'Cross to the Frost Isle', desc:'Fly to the icy island and claim the frozen beacon', type:'collect', item:'marker', count:1, xp:900, spawn:{item:'marker',count:1,at:'frost'}},
+ {title:'Frost Raiders', desc:'Defeat 10 raiders attacking the frost peak', type:'kill', target:'human', count:10, xp:1000, wave:{kind:'human',count:10,at:'frostpeak'}},
+ {title:'Shatter the Ice Spires', desc:'Destroy 6 ice spires in the frozen ruins', type:'destroy', target:'icespike', count:6, xp:1050},
+ {title:'Gather Ice Gems', desc:'Collect 8 glowing ice gems around the frost isle', type:'collect', item:'icegem', count:8, xp:1100, spawn:{item:'icegem',count:8,at:'frost'}},
+ {title:'Defend the Frost Peak', desc:'Defeat 12 raiders attacking the frost peak', type:'kill', target:'human', count:12, xp:1200, wave:{kind:'human',count:12,at:'frostpeak'}},
+ {title:'Frozen Star Hunt', desc:'Collect 20 stars', type:'stars', count:20, xp:1150},
+ {title:'Siege the Ice Fortress', desc:'Destroy 10 ice spires in the frozen ruins', type:'destroy', target:'icespike', count:10, xp:1350},
+ {title:'The Frost Guardian', desc:'Defeat the Frost Guardian (boss)!', type:'kill', target:'boss', count:1, xp:1800, boss:'frostguardian', bossAt:'iceruins', bossTough:1.7},
+ {title:'Sky Gauntlet: Frost Isle', desc:'Fly through 16 icy rings', type:'collect', item:'ring', count:16, xp:1500, spawn:{item:'ring',count:16,at:'frost'}},
+ {title:'The Frostwyrm', desc:'Defeat the Frostwyrm (final boss)!', type:'kill', target:'boss', count:1, xp:3000, boss:'frostwyrm', bossAt:'frostpeak', bossTough:2.4}
 ],
 cat:[
  {title:'Mouse Patrol', desc:'Catch 5 mice at the farm', type:'kill', target:'mouse', count:5, xp:250, spawn:{item:'mice',count:8}},
@@ -299,7 +309,17 @@ cat:[
  {title:'Star Prowler', desc:'Collect 20 stars', type:'stars', count:20, xp:800},
  {title:'Crate Havoc', desc:'Smash 10 crates', type:'destroy', target:'crate', count:10, xp:850},
  {title:'Barn Siege', desc:'Defeat 12 wolves attacking the barn', type:'kill', target:'wolf', count:12, xp:1000, wave:{kind:'wolf',count:12,at:'barn'}},
- {title:'The Dire Alpha', desc:'Defeat the Dire Alpha (final boss)!', type:'kill', target:'boss', count:1, xp:1800, boss:'direalpha', bossTough:2.0}
+ {title:'The Dire Alpha', desc:'Defeat the Dire Alpha (final boss)!', type:'kill', target:'boss', count:1, xp:1800, boss:'direalpha', bossTough:2.0},
+ {title:'Paws on the Frost Isle', desc:'Cross the ice bridge and claim the frozen beacon', type:'collect', item:'marker', count:1, xp:900, spawn:{item:'marker',count:1,at:'frost'}},
+ {title:'Ice Wolves', desc:'Defeat 10 wolves at the frost den', type:'kill', target:'wolf', count:10, xp:1000, wave:{kind:'wolf',count:10,at:'frostden'}},
+ {title:'Frosty Mouse Hunt', desc:'Catch 10 mice at the frost den', type:'kill', target:'mouse', count:10, xp:1050, spawn:{item:'mice',count:12,at:'frostden'}},
+ {title:'Yarn in the Snow', desc:'Collect 14 balls of yarn scattered on the ice', type:'collect', item:'yarn', count:14, xp:1150, spawn:{item:'yarn',count:14,at:'frost'}},
+ {title:'Defend the Frost Den', desc:'Defeat 12 wolves attacking the frost den', type:'kill', target:'wolf', count:12, xp:1200, wave:{kind:'wolf',count:12,at:'frostden'}},
+ {title:'Frozen Star Prowler', desc:'Collect 20 stars', type:'stars', count:20, xp:1150},
+ {title:'Shatter the Ice Spires', desc:'Destroy 8 ice spires in the frozen ruins', type:'destroy', target:'icespike', count:8, xp:1300},
+ {title:'Icy Treasure Hunt', desc:'Find the hidden ice gem treasure', type:'collect', item:'icegem', count:1, xp:1400, spawn:{item:'icegem',count:1,at:'iceruins'}},
+ {title:'The Frost Fang', desc:'Defeat Frost Fang (boss)!', type:'kill', target:'boss', count:1, xp:1800, boss:'frostfang', bossAt:'frostden', bossTough:1.7},
+ {title:'The Frozen Alpha', desc:'Defeat the Frozen Alpha (final boss)!', type:'kill', target:'boss', count:1, xp:3000, boss:'frozenalpha', bossAt:'frostden', bossTough:2.4}
 ],
 bird:[
  {title:'Berry Picker', desc:'Collect 10 berries from the bushes', type:'collect', item:'berry', count:10, xp:250, spawn:{item:'berry',count:10}},
@@ -321,7 +341,17 @@ bird:[
  {title:'Twig Tycoon', desc:'Collect 14 twigs', type:'collect', item:'twig', count:14, xp:800, spawn:{item:'twig',count:14}},
  {title:'Raid the Roost', desc:'Destroy 6 serpent nests on the isle', type:'destroy', target:'serpentnest', count:6, xp:850},
  {title:'Storm Sentinel', desc:'Defeat the Storm Sentinel (boss)!', type:'kill', target:'boss', count:1, xp:1200, boss:'stormserpent', bossAt:'crystal', bossTough:1.7},
- {title:'The Sky Titan', desc:'Defeat the Sky Titan (final boss)!', type:'kill', target:'boss', count:1, xp:2000, boss:'skytitan', bossAt:'skynest', bossTough:2.2}
+ {title:'The Sky Titan', desc:'Defeat the Sky Titan (final boss)!', type:'kill', target:'boss', count:1, xp:2000, boss:'skytitan', bossAt:'skynest', bossTough:2.2},
+ {title:'Wings to the Frost Isle', desc:'Fly to the icy island and claim the frozen beacon', type:'collect', item:'marker', count:1, xp:900, spawn:{item:'marker',count:1,at:'frost'}},
+ {title:'Blizzard Snakes', desc:'Defeat 10 snakes near the blizzard nest', type:'kill', target:'snake', count:10, xp:1000, wave:{kind:'snake',count:10,at:'blizzardnest'}},
+ {title:'Gather Frost Crystals', desc:'Collect 10 storm crystals on the frost isle', type:'collect', item:'crystal', count:10, xp:1050, spawn:{item:'crystal',count:10,at:'icecrystal'}},
+ {title:'Icy Sky Gauntlet', desc:'Fly through 16 icy rings', type:'collect', item:'ring', count:16, xp:1150, spawn:{item:'ring',count:16,at:'frost'}},
+ {title:'Defend the Blizzard Nest', desc:'Defeat 12 snakes attacking the blizzard nest', type:'kill', target:'snake', count:12, xp:1200, wave:{kind:'snake',count:12,at:'blizzardnest'}},
+ {title:'Frozen Star Hunt', desc:'Collect 20 stars', type:'stars', count:20, xp:1150},
+ {title:'Gather Snowflakes', desc:'Collect 14 sparkling snowflakes', type:'collect', item:'snowflake', count:14, xp:1300, spawn:{item:'snowflake',count:14,at:'frost'}},
+ {title:'The Ice Falcon', desc:'Defeat the Ice Falcon (boss)!', type:'kill', target:'boss', count:1, xp:1800, boss:'icefalcon', bossAt:'icecrystal', bossTough:1.7},
+ {title:'Shatter the Ice Spires', desc:'Destroy 8 ice spires in the frozen ruins', type:'destroy', target:'icespike', count:8, xp:1350},
+ {title:'The Blizzard Titan', desc:'Defeat the Blizzard Titan (final boss)!', type:'kill', target:'boss', count:1, xp:3000, boss:'blizzardtitan', bossAt:'blizzardnest', bossTough:2.4}
 ]};
 
 // ---------------- model builders ----------------
@@ -711,6 +741,11 @@ function buildQuestItem(kind){
   else if(kind==='marker'){const m=put(g,sph(0.35,'#7dffb0',8,7),0,0.5,0);m.material.emissive=new THREE.Color('#1f8a4c');m.material.transparent=true;m.material.opacity=0.85;}
   else if(kind==='ember'){const e=put(g,sph(0.28,'#ff6a2a',7,6),0,0.32,0);e.material.emissive=new THREE.Color('#ff3a0a');e.material.emissiveIntensity=0.9;}
   else if(kind==='crystal'){const c=put(g,cone(0.24,0.7,'#7fe8ff',5),0,0.5,0);c.material.emissive=new THREE.Color('#2f9fd0');c.material.emissiveIntensity=0.8;c.material.transparent=true;c.material.opacity=0.9;}
+  else if(kind==='icegem'){const c=put(g,new THREE.Mesh(new THREE.OctahedronGeometry(0.26,0),mat('#bfe9ff')),0,0.4,0);c.material.emissive=new THREE.Color('#4aa3ff');c.material.emissiveIntensity=0.75;c.material.transparent=true;c.material.opacity=0.92;}
+  else if(kind==='snowflake'){const s0=new THREE.Group();
+    for(let i=0;i<3;i++){const a=i*(Math.PI/3);const arm=put(s0,box(0.05,0.05,0.42,'#ffffff'),0,0.35,0,0,a);
+      arm.material.emissive=new THREE.Color('#aee0ff');arm.material.emissiveIntensity=0.6;}
+    g.add(s0);}
   if(!g.userData.noBeacon)g.add(buildBeacon(kind==='marker'?'#7dffb0':'#ffe680'));
   return g;
 }
@@ -730,7 +765,11 @@ const L={ nest:new THREE.Vector3(-60,0,-60), village:new THREE.Vector3(50,0,30),
   pond:new THREE.Vector3(20,0,-70), bigtree:new THREE.Vector3(80,0,-40), den:new THREE.Vector3(-90,0,20),
   snakepit:new THREE.Vector3(-20,0,90), boss:new THREE.Vector3(90,0,85),
   isle:new THREE.Vector3(150,0,150), volcano:new THREE.Vector3(150,0,166), ruins:new THREE.Vector3(133,0,150),
-  crystal:new THREE.Vector3(166,0,140), skynest:new THREE.Vector3(150,0,135) };
+  crystal:new THREE.Vector3(166,0,140), skynest:new THREE.Vector3(150,0,135),
+  frost:new THREE.Vector3(-150,0,150), frostpeak:new THREE.Vector3(-150,0,166), iceruins:new THREE.Vector3(-133,0,150),
+  icecrystal:new THREE.Vector3(-166,0,140), blizzardnest:new THREE.Vector3(-150,0,135), frostden:new THREE.Vector3(-150,0,120) };
+// how far quest items spread out at big hub locations vs small named spots (default 6)
+const HUB_RADIUS={village:24, isle:26, frost:26};
 let colliders=[]; // {x,z,r}
 let hpBars=[];
 
@@ -844,6 +883,11 @@ function buildObelisk(){const g=new THREE.Group();
   put(g,cone(0.7,0.9,'#6b6675',4),0,3.55,0,0,Math.PI/4);
   const r=put(g,box(0.5,1.5,0.12,'#7d3cff'),0,1.8,0.47);r.material.emissive=new THREE.Color('#5a1fd0');r.material.emissiveIntensity=0.85;
   return g;}
+function buildIceSpike(){const g=new THREE.Group();
+  put(g,box(0.9,3.2,0.9,'#bfe9ff'),0,1.6,0);
+  put(g,cone(0.7,1.3,'#eaf7ff',4),0,3.85,0,0,Math.PI/4);
+  const r=put(g,box(0.5,1.5,0.12,'#7fe8ff'),0,1.8,0.47);r.material.emissive=new THREE.Color('#2f9fd0');r.material.emissiveIntensity=0.75;
+  return g;}
 function buildCrystalSpire(){const g=new THREE.Group();
   const em=new THREE.Color('#2f9fd0');
   [[0,1.4,0,0.55,2.9,0],[0.45,0.9,0.2,0.34,1.8,0.4],[-0.42,0.75,-0.16,0.3,1.5,-0.5]].forEach(p=>{
@@ -860,6 +904,12 @@ function buildVolcano(){const g=new THREE.Group();
   put(g,cyl(2.6,3.2,1.2,'#2a221e',14),0,7.4,0);
   const lava=put(g,cyl(2.0,2.0,0.5,'#ff5a1e',14),0,7.55,0);lava.material.emissive=new THREE.Color('#ff3a0a');lava.material.emissiveIntensity=1.0;
   for(let i=0;i<6;i++){const a=i/6*Math.PI*2;const s=put(g,box(0.4,3.2,0.4,'#ff6a2a'),Math.cos(a)*2.9,3.4,Math.sin(a)*2.9);s.material.emissive=new THREE.Color('#ff3a0a');s.material.emissiveIntensity=0.6;}
+  return g;}
+function buildFrostPeak(){const g=new THREE.Group();
+  put(g,cyl(2.4,6.2,7.2,'#dceeff',14),0,3.6,0);
+  put(g,cyl(2.6,3.2,1.2,'#eaf7ff',14),0,7.4,0);
+  const core=put(g,cyl(2.0,2.0,0.5,'#7fe8ff',14),0,7.55,0);core.material.emissive=new THREE.Color('#2f9fd0');core.material.emissiveIntensity=0.85;
+  for(let i=0;i<6;i++){const a=i/6*Math.PI*2;const s=put(g,box(0.4,3.2,0.4,'#bfe9ff'),Math.cos(a)*2.9,3.4,Math.sin(a)*2.9);s.material.emissive=new THREE.Color('#4aa3ff');s.material.emissiveIntensity=0.5;}
   return g;}
 function buildBranch(){const g=new THREE.Group();
   for(let i=0;i<3;i++){const s=box(0.12,0.12,rand(1.0,1.6),'#8a6f4d');put(g,s,rand(-0.2,0.2),0.12+i*0.08,0,0,rand(0,3));}
@@ -931,6 +981,61 @@ function buildIsland(){
       branchPiles.push({group:g,got:false,r:1.8});}
   }
 }
+// Second, ice-themed island — same size as the first, reachable by every
+// species from the start (a permanent frozen bridge, no branch-collecting
+// needed this time). Hosts 10 new quests each for dragon/cat/bird.
+function buildFrostIsle(){
+  const C=L.frost;
+  const sea=new THREE.Mesh(new THREE.CircleGeometry(62,44),new THREE.MeshStandardMaterial({color:'#dcefff',roughness:0.25,metalness:0.15,transparent:true,opacity:0.92}));
+  sea.rotation.x=-Math.PI/2;sea.position.set(C.x,0.06,C.z);scene.add(sea);
+  const beach=new THREE.Mesh(new THREE.CircleGeometry(42,34),new THREE.MeshStandardMaterial({color:'#f2f8ff',roughness:1}));
+  beach.rotation.x=-Math.PI/2;beach.position.set(C.x,0.12,C.z);beach.receiveShadow=true;scene.add(beach);
+  const grass=new THREE.Mesh(new THREE.CircleGeometry(34,34),new THREE.MeshStandardMaterial({color:'#cfe9ff',roughness:1}));
+  grass.rotation.x=-Math.PI/2;grass.position.set(C.x,0.18,C.z);grass.receiveShadow=true;scene.add(grass);
+  // reef ring — same blocking mechanic as the first island, but the ice
+  // bridge across the gap is already built, so every species can reach it.
+  const gapA=Math.atan2(-C.z,-C.x);
+  for(let i=0;i<28;i++){const a=i/28*Math.PI*2,rr=50+rand(-2,2);
+    const x=C.x+Math.cos(a)*rr,z=C.z+Math.sin(a)*rr;
+    let dd=a-gapA;dd=Math.atan2(Math.sin(dd),Math.cos(dd));
+    if(Math.abs(dd)<0.42)continue; // leave the gap open for the permanent bridge
+    addCollider(x,z,3.0);
+    const r=buildRock();r.scale.multiplyScalar(rand(1.4,2.4));
+    r.position.set(x,rand(0.2,0.9),z);r.castShadow=true;scene.add(r);}
+  // permanent ice bridge across the gap
+  {
+    const dir=new THREE.Vector3(-C.x,0,-C.z).normalize();
+    const from=C.clone().add(dir.clone().multiplyScalar(62));
+    const to=C.clone().add(dir.clone().multiplyScalar(36));
+    const mid=from.clone().add(to).multiplyScalar(0.5);
+    const len=from.distanceTo(to);
+    const ang=Math.atan2(dir.x,dir.z);
+    const deck=new THREE.Mesh(new THREE.BoxGeometry(4.4,0.25,len+2),new THREE.MeshStandardMaterial({color:'#dceeff',roughness:0.6}));
+    deck.position.set(mid.x,0.16,mid.z);deck.rotation.y=ang;deck.receiveShadow=true;scene.add(deck);
+    const planks=Math.max(4,Math.floor(len/1.2));
+    for(let i=0;i<planks;i++){const p=from.clone().lerp(to,i/(planks-1));
+      const pl=new THREE.Mesh(new THREE.BoxGeometry(4.4,0.08,0.22),new THREE.MeshStandardMaterial({color:'#bfe0ff',roughness:0.6}));
+      pl.position.set(p.x,0.30,p.z);pl.rotation.y=ang;scene.add(pl);}
+    [-2.1,2.1].forEach(off=>{
+      const px=Math.cos(ang)*off, pz=-Math.sin(ang)*off;
+      const rail=new THREE.Mesh(new THREE.BoxGeometry(0.16,0.7,len+2),new THREE.MeshStandardMaterial({color:'#bfe0ff',roughness:0.6}));
+      rail.position.set(mid.x+px,0.6,mid.z+pz);rail.rotation.y=ang;rail.castShadow=true;scene.add(rail);});
+  }
+  // frost peak (dragon's icy final-boss mountain)
+  const v=buildFrostPeak();v.position.set(L.frostpeak.x,0.18,L.frostpeak.z);scene.add(v);addCollider(L.frostpeak.x,L.frostpeak.z,4.6);
+  // ice ruins — destroyable ice spikes, shared "destroy" target for all 3 species
+  for(let i=0;i<8;i++){const a=i/8*Math.PI*2;
+    placeProp(buildIceSpike,new THREE.Vector3(L.iceruins.x+Math.cos(a)*7,0.18,L.iceruins.z+Math.sin(a)*7),'icespike',80,1.0);}
+  // ice crystal spires (bird gather point, reuses the already-icy crystal spire model)
+  for(let i=0;i<6;i++){const a=i/6*Math.PI*2;
+    placeProp(buildCrystalSpire,new THREE.Vector3(L.icecrystal.x+Math.cos(a)*6,0.18,L.icecrystal.z+Math.sin(a)*6),null,0,0.9);}
+  // scattered ice rocks + floating stars
+  for(let i=0;i<12;i++){const r=buildRock();const a=rand(0,Math.PI*2),rr=rand(8,30);
+    r.position.set(C.x+Math.cos(a)*rr,rand(0.2,0.9),C.z+Math.sin(a)*rr);r.castShadow=true;scene.add(r);}
+  for(let i=0;i<14;i++){const s=buildStar();const a=rand(0,Math.PI*2),rr=rand(4,32);
+    s.position.set(C.x+Math.cos(a)*rr,rand(3,10),C.z+Math.sin(a)*rr);scene.add(s);
+    stars.push({group:s,active:true,respawnT:0,baseY:s.position.y});}
+}
 function buildWorld(){
   // ground
   const ground=new THREE.Mesh(new THREE.PlaneGeometry(WORLD*2+40,WORLD*2+40,1,1),
@@ -982,6 +1087,7 @@ function buildWorld(){
   // fisherman (cat mode flavour) — passive human by the pond
   if(chosenSpecies==='cat'){const f=buildHuman(false);f.position.set(L.pond.x+9,0,L.pond.z+2);f.rotation.y=-2.2;scene.add(f);}
   buildIsland();
+  buildFrostIsle();
 }
 
 // ---------------- HP bars ----------------
@@ -1212,8 +1318,9 @@ function spawnQuestStuff(q){
   if(q.spawn){
     const s=q.spawn;
     if(s.item==='mice'){
+      const mc=(s.at&&L[s.at])?L[s.at]:L.barn;
       for(let i=0;i<s.count;i++){
-        spawnEnemy('mouse',new THREE.Vector3(L.barn.x+rand(-16,16),0,L.barn.z+rand(-14,14)),false);}
+        spawnEnemy('mouse',new THREE.Vector3(mc.x+rand(-16,16),0,mc.z+rand(-14,14)),false);}
     }else if(s.item==='ring'){
       const ctr=(s.at&&L[s.at])?L[s.at]:new THREE.Vector3(0,0,0);
       const rad=(s.at&&L[s.at])?26:55;
@@ -1226,7 +1333,7 @@ function spawnQuestStuff(q){
     }else{
       for(let i=0;i<s.count;i++){
         const g=buildQuestItem(s.item);let p;
-        if(s.at&&L[s.at]){p=findClearSpot(L[s.at],6);}
+        if(s.at&&L[s.at]){p=findClearSpot(L[s.at],HUB_RADIUS[s.at]||6);}
         else if(s.at==='village'||s.item==='trinket'||s.item==='yarn'){p=findClearSpot(L.village,24);}
         else if(s.item==='berry'){p=new THREE.Vector3(rand(-WORLD*0.7,WORLD*0.7),0,rand(-WORLD*0.7,WORLD*0.7));}
         else if(s.item==='songpost'){p=[new THREE.Vector3(40,0,-30),new THREE.Vector3(-40,0,-10),new THREE.Vector3(10,0,60)][i]||new THREE.Vector3(rand(-80,80),0,rand(-80,80));}
@@ -1385,6 +1492,11 @@ addEventListener('keydown',e=>{
   if(!playing)return;
   if(e.code==='KeyF')toggleFamilyHome();
   if(e.code==='KeyP'&&player.level>=2&&!familyChosen)openFamilyPicker();
+  if(e.code==='KeyT'){ // debug: teleport to the frost isle to verify it exists
+    player.group.position.set(L.frost.x,6,L.frost.z+45);
+    player.vy=0;player.flying=true;player.onGround=false;
+    toast('❄️ Teleported to the Frost Isle (debug)',true);
+  }
 });
 addEventListener('keyup',e=>{keys[e.code]=false;});
 addEventListener('mousedown',e=>{if(e.button===0)mouseDown=true;});
